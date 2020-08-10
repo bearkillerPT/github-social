@@ -1,13 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import followers from './screens/Followers'
 import {createAppContainer, Navigation} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import search from './screens/Search';
 
 
 
 const AppNavigator = createStackNavigator(
   {
-    Home: { screen : followers,
+    Home: { screen : search,
             params : {user : 'Unn4m3DD'},
             navigationOptions: () => ({
               title: `Github Social Club`,
@@ -16,7 +16,17 @@ const AppNavigator = createStackNavigator(
               headerTitleStyle: {color: 'white'},
               headerTruncatedBackTitle: `Back`
             }),
-          }
+          },
+    followers: {
+              screen: followers,
+              navigationOptions: () => ({
+                title: `Github Social Club`,
+                headerBackTitle: 'Go Back',
+                headerStyle : {backgroundColor : 'black'},
+                headerTitleStyle: {color: 'white'},
+                headerTruncatedBackTitle: `Back`
+              }),
+    }
   },
   {
     initialRoute: 'Home',
